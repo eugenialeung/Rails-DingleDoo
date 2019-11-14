@@ -7,6 +7,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :style, optional: true
       t.serial :sku, limit: 12
       t.text :description, null: false
+      t.integer :inventory, default: 0
 
       t.timestamps
     end

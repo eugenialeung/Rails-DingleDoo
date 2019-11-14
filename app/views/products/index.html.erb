@@ -13,6 +13,7 @@
       <th scope="col">Name</th>
       <th scope="col">SKU</th>
       <th scope="col">Price</th>
+      <th scope="col">Inventory</th>
       <th scope="col">Color</th>
       <th scope="col">Style</th>
       <th scope="col">Description</th>
@@ -28,6 +29,7 @@
         <td><a href="<%= product_url(product) %>%"><p><%= product.name %></p></a></td>
         <td><%= product.sku %></td>
         <td><%= number_to_currency(product.price) %></td>
+        <td><%= number_to_currency(product.inventory) %></td>
         <td><%= product.color %></td>
         <td><%= product.style %></td>
         <td><%= product.description %></td>

@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_023548) do
     t.string "style"
     t.serial "sku", null: false
     t.text "description", null: false
+    t.integer "inventory", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_products_on_name", unique: true
