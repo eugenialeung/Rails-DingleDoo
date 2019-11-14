@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DingleDoo</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+  </head>
+  <body>
+    <%= render partial: 'shared/main_nav' %>
+
+    <br>
+    <div class='main-content'>
+
+    
+      
+
+      <% if logged_in? %>
+
+
+        
+        <nav>
+          <div class='user-detail'>
+            <p>Logged in as: <%= current_user.email %></p>
+            <a href="<%= products_url %>">Back to Admin Dashboard</a>
+          <form action=<%= session_url %> method='post'>
+            <input
+              type="hidden"
+              name="_method"
+              value="delete">
+            <input
+              type="hidden"
+              name="authenticity_token"
+              value="<%= form_authenticity_token %>">
+            <input 
+              type="submit" value="Sign Out">
+          </form>
+          </div>
+        </nav>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+      <% end %>
+
+      <% if flash[:errors] %>
+        <p><%= flash[:errors].join(", ") %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+
+  </body>
+  
+</html>

@@ -1,0 +1,24 @@
+<h2 class='page-header'>Sign-in</h2>
+
+<a class='button' href=<%= new_user_url %> >Go to Sign-up!</a>
+
+
+
+
+<form class='form' action="<%= session_url %>" method="post">
+  <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+  <div class="form-group">
+    <label for="new-user-email">Email address</label>
+    <input type="text" id='new-user-email' name="user[email]" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="new-user-password">Password</label>
+    <input type="password" id="new-user-password" name="user[password]" placeholder="Password">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

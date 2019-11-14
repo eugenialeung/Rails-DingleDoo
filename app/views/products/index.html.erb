@@ -1,0 +1,11 @@
+<h1 class='page-header'>All Products</h1>
+<ul class='main-list'>
+  <% @products.each do |product| %>
+    <li><p><%= product.name %></p></a></li>
+  <% end %>
+</ul>
+
+<ul class='page-links'>
+  <a class='button' href="<%= new_product_url %>" >Add new product</a>
+</ul>
+
