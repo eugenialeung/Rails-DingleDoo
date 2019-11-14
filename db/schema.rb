@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_023548) do
 
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
-    t.decimal "price", null: false
+    t.float "price", null: false
     t.string "color"
     t.string "style"
     t.serial "sku", null: false

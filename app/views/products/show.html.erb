@@ -1,1 +1,48 @@
-<h1>Showing this product</h1>
+<h1>Product Details</h1>
+
+<h1 class='page-header'><%= @product.name %></h1>
+<table class="table table-striped">
+
+
+  <tbody>
+    <tr>
+      <th scope="col">Image</th>
+      <td>Image will go here</td>
+    </tr>
+    <tr>
+      <th scope="col">SKU</th>
+      <td><%= @product.sku %></td>
+    </tr>
+    <tr>
+      <th scope="col">Price</th>
+      <td><%= number_to_currency(@product.price )%></td>
+    </tr>
+    <tr>
+      <th scope="col">Color</th>
+      <td><%= @product.color %></td>
+    </tr>
+    <tr>
+      <th scope="col">Style</th>
+      <td><%= @product.style %></td>
+    </tr>
+    <tr>
+      <th scope="col">Description</th>
+      <td><%= @product.description %></td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+
+
+  <li><a class='button' href="<%= edit_product_url(@product) %>">Edit Product</a></li>
+  <li>
+    <form action="<%= product_url(@product) %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+      <input type="submit" value="Destroy Product">
+    </form>
+  </li>
+  <li><a class='button' href="<%= products_url %>">All products</a></li>
+

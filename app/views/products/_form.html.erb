@@ -1,13 +1,9 @@
-<h1>New Product Form</h1>
-
-<h1 class='page-header'>New <%= @product.name %> Product</h1>
-
-<%= render "form", product: @product %>
-
-
-<!--
 <div class="container">
-  <form class='form' action="<%= products_url %>" method="post">
+    <% action_url = product.persisted? ? product_url(product) : products_url %>
+    <% http_method = product.persisted? ? "PATCH" : "POST" %>
+
+  <form class='form' action="<%= action_url %>" method="POST">
+    <input type="hidden" name="_method" value="<%= http_method %>">
     <input
       type="hidden"
       name="authenticity_token"
@@ -16,31 +12,31 @@
     <div class="form-group row">
       <label for="new-product-name" class="col-sm-2 col-form-label">Product Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="new-product-name" name="product[name]" placeholder="Product Name">
+        <input type="text" class="form-control" id="new-product-name" name="product[name]" value="<%= product.name %>">
       </div>
     </div>
     <div class="form-group row">
       <label for="new-product-price" class="col-sm-2 col-form-label">Price</label>
       <div class="col-sm-10">
-        <input type="decimal" class="form-control" id="new-product-price" name="product[price]" placeholder="Price">
+        <input type="decimal" class="form-control" id="new-product-price" name="product[price]" value="<%= product.price %>">
       </div>
     </div>
     <div class="form-group row">
       <label for="new-product-color" class="col-sm-2 col-form-label">Color</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="new-product-color" name="product[color]" placeholder="Color (Optional)">
+        <input type="text" class="form-control" id="new-product-color" name="product[color]" value="<%= product.color %>">
       </div>
     </div>
     <div class="form-group row">
       <label for="new-product-style" class="col-sm-2 col-form-label">Style</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="new-product-style" name="product[style]" placeholder="Style (Optional)">
+        <input type="text" class="form-control" id="new-product-style" name="product[style]" value="<%= product.style %>">
       </div>
     </div>
     <div class="form-group row">
       <label for="new-product-description" class="col-sm-2 col-form-label">Description</label>
       <div class="col-sm-10">
-        <textarea class="form-control" id="new-product-description" name="product[description]"></textarea>
+        <textarea class="form-control" id="new-product-description" name="product[description]"><%= product.description%></textarea>
       </div>
     </div>
     <div class="form-group row">
@@ -51,4 +47,3 @@
   </form>
 </div>
 
--->
