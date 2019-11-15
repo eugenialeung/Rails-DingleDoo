@@ -4,6 +4,8 @@ class Product < ApplicationRecord
     validates :description, presence: true
     validates :price, presence: true
 
+    has_one_attached :images
+
 
 end
 

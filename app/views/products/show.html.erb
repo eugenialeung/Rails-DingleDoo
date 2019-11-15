@@ -7,7 +7,11 @@
   <tbody>
     <tr>
       <th scope="col">Image</th>
-      <td>Image will go here</td>
+      <td>
+        <% if @product.images.attached? %>
+            <%= image_tag(@product.images) %>
+        <% end %>
+    </td>
     </tr>
     <tr>
       <th scope="col">SKU</th>
