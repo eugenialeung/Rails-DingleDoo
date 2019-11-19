@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
   
-    helper_method :current_user, :current_user_id, :logged_in?
+    helper_method :current_user, :current_user_id, :logged_in?, :authenticate_admin
   
     def current_user
       return nil unless session[:session_token]
@@ -22,6 +22,12 @@ class ApplicationController < ActionController::Base
   
     def require_user!
       redirect_to new_session_url if current_user.nil?
+    end
+
+    def authenticate_admin
+      return unless !current_user.admin?
+      flash[:error] = "Admin access only"
+      redirect_to root_url
     end
 
   end
