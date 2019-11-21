@@ -21,25 +21,13 @@
       
 
       <% if logged_in? %>
-
-
         
         <nav>
           <div class='user-detail'>
             <p>Logged in as: <%= current_user.email %></p>
-            <a href="<%= products_url %>">Back to Admin Dashboard</a>
-          <form action=<%= session_url %> method='post'>
-            <input
-              type="hidden"
-              name="_method"
-              value="delete">
-            <input
-              type="hidden"
-              name="authenticity_token"
-              value="<%= form_authenticity_token %>">
-            <input 
-              type="submit" value="Sign Out">
-          </form>
+              <% if current_user.admin? %>
+                <a href="<%= products_url %>">Admin Dashboard</a>
+              <% end %>
           </div>
         </nav>
       <% end %>

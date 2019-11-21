@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         user = User.find_by_credentials(
             params[:user][:email],
             params[:user][:password],
-            params[:user][:admin]
+            params[:user]
         )
         if user.nil?
             flash.now[:errors] = ["Invalid credentials"]
