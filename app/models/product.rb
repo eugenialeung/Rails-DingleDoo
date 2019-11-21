@@ -6,6 +6,8 @@ class Product < ApplicationRecord
 
     has_one_attached :images
 
+    belongs_to :cart
+
 
 end
 
