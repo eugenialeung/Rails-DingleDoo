@@ -6,7 +6,8 @@ class Product < ApplicationRecord
 
     has_one_attached :images
 
-    belongs_to :cart
+    has_many :cart_items
+    has_many :carts, through: :cart_items
 
 
 end
