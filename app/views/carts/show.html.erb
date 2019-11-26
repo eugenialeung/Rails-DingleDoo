@@ -1,0 +1,26 @@
+<h1>Your Cart</h1>
+
+<table class="row">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+<tbody>
+    <% current_cart.cart_items.each do |item| %>
+      <tr class="col-md-16">
+        <td><%= link_to image_tag(item.product.images, class: "image"), dingledoo_url(item.product.id)  %></td>
+        <td><%= link_to item.product.name, dingledoo_url(item.product.id) %></td>
+        <td><%= item.quantity %></td>
+        <td><%= number_to_currency item.product.price, unit: 'PLN', format: '%n %u' %></td>
+        <td><%= link_to 'Remove from cart', cart_item_url(item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<hr>
+
+

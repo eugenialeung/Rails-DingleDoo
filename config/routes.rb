@@ -20,9 +20,14 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :cart_items, only: [:create, :destroy, :update]
+  resources :carts, only: [:show]
 
-  get    'cart',     to: 'cart#index'
+
+  resources :cart_items, only: [:create, :destroy, :update]
+  
+
+
+  # get    'cart',     to: 'cart#index'
 
   # post '/add_to_cart/:product_id' => 'cart#add_to_cart', :as => 'add_to_cart'
 

@@ -3,7 +3,6 @@ class Cart < ApplicationRecord
     has_many :products, through: :cart_items
 
     def add_product(product_params)
-        print "clicked into cart.rb model"
 
         current_item = cart_items.find_by(product_id: product_params[:product][:product_id])
     
@@ -16,5 +15,8 @@ class Cart < ApplicationRecord
                                       cart_id: self.id)
         end
           new_item
+
     end
+
+
 end

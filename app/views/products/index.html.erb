@@ -29,7 +29,7 @@
         <td><a href="<%= product_url(product) %>%"><p><%= product.name %></p></a></td>
         <td><%= product.sku %></td>
         <td><%= number_to_currency(product.price) %></td>
-        <td><%= number_to_currency(product.inventory) %></td>
+        <td><%= product.inventory %></td>
         <td><%= product.color %></td>
         <td><%= product.style %></td>
         <td><%= product.description %></td>

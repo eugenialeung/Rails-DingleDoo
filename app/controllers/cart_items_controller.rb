@@ -7,23 +7,28 @@ class CartItemsController < ApplicationController
         @cart.add_product(params)
         
         if @cart.save
-          redirect_to root_url
+          redirect_to cart_url(@cart)
         else
           redirect_to root_url
         end
-      end
+    end
+
+   
+
+
+
     
-      def update
-        if @cart_item.update(cart_item_params)
-            redirect_to root_url
-        else
-            redirect_to root_url
-        end
-      end
+    #   def update
+    #     if @cart_item.update(cart_item_params)
+    #         redirect_to root_url
+    #     else
+    #         redirect_to root_url
+    #     end
+    #   end
     
       def destroy
         @cart_item.destroy
-        redirect_to cart_url
+        redirect_to cart_url(@cart)
       end
     
       private
