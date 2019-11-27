@@ -20,10 +20,13 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :carts, only: [:show]
+  resources :carts, only: [:show] 
 
 
-  resources :cart_items, only: [:create, :destroy, :update]
+  resources :cart_items, only: [:create, :destroy] 
+
+  post 'cart_items/:id/add' => "cart_items#add_quantity", as: "cart_items_add"
+  post 'cart_items/:id/reduce' => "cart_items#reduce_quantity", as: "cart_items_reduce"
   
 
 

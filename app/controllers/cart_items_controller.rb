@@ -13,18 +13,26 @@ class CartItemsController < ApplicationController
         end
     end
 
-   
+    def add_quantity
+        @cart_item = CartItem.find(params[:id])
+        @cart_item.quantity += 1
+        @cart_item.save
+        redirect_to cart_path(current_cart)
+      end
+      
+      def reduce_quantity
+        @cart_item = CartItem.find(params[:id])
+        if @cart_item.quantity > 1
+          @cart_item.quantity -= 1
+        end
+        @cart_item.save
+        redirect_to cart_path(current_cart)
+      end
 
 
 
     
-    #   def update
-    #     if @cart_item.update(cart_item_params)
-    #         redirect_to root_url
-    #     else
-    #         redirect_to root_url
-    #     end
-    #   end
+
     
       def destroy
         @cart_item.destroy
@@ -43,6 +51,8 @@ class CartItemsController < ApplicationController
         def cart_item_params
           params.require(:cart_item).permit(:product_id, :cart_id, :quantity)
         end
+
+  
 
 
 end

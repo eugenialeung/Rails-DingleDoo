@@ -14,7 +14,16 @@
       <tr class="col-md-16">
         <td><%= link_to image_tag(item.product.images, class: "image"), dingledoo_url(item.product.id)  %></td>
         <td><%= link_to item.product.name, dingledoo_url(item.product.id) %></td>
-        <td><%= item.quantity %></td>
+        <td>
+                <p><%= item.quantity %></p>
+                  <li>
+                    <%= link_to "Add one", cart_items_add_url(item), method: :post %>
+                    <% if item.quantity > 1 %>
+                        <%= link_to "Reduce one", cart_items_reduce_url(item), method: :post %>
+                    <% end %>
+                </li>
+        </td>
+
         <td><%= number_to_currency item.product.price, unit: 'PLN', format: '%n %u' %></td>
         <td><%= link_to 'Remove from cart', cart_item_url(item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %></td>
       </tr>
@@ -22,5 +31,8 @@
   </tbody>
 </table>
 <hr>
+
+
+
 
 
