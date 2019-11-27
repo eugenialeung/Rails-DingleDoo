@@ -1,6 +1,6 @@
 class Cart < ApplicationRecord
-    has_many :cart_items
-    has_many :products, through: :cart_items
+    has_many :cart_items, dependent: :destroy
+    # has_many :products, through: :cart_items
 
 
 
@@ -17,9 +17,13 @@ class Cart < ApplicationRecord
                                       cart_id: self.id)
         end
           new_item
-    
-
+  
     end
+
+    def cart_subtotal
+      cart_items.to_a.sum { |item| item.product_total_price}
+    end
+
 
 
 

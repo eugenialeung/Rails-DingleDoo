@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :carts, only: [:show] 
+  resources :carts, only: [:show, :destroy] 
 
 
   resources :cart_items, only: [:create, :destroy] 

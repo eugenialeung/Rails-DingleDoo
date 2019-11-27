@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
-
-    before_action :set_cart, only: [:create, :update, :destroy]
+    include CurrentCart
     before_action :set_cart_item, only: [:update, :destroy]
+    before_action :set_cart, only: [:create]
 
     def create
         @cart.add_product(params)
@@ -35,6 +35,7 @@ class CartItemsController < ApplicationController
 
     
       def destroy
+        @cart = Cart.find(session[:cart_id])
         @cart_item.destroy
         redirect_to cart_url(@cart)
       end
@@ -49,7 +50,7 @@ class CartItemsController < ApplicationController
         end
     
         def cart_item_params
-          params.require(:cart_item).permit(:product_id, :cart_id, :quantity)
+          params.require(:cart_item).permit(:product_id, :quantity)
         end
 
   
