@@ -1,48 +1,48 @@
-<h1 class='page-header'>All Products</h1>
+  <h1 class='page-header'>Products Dashboard</h1>
 
 
-<ul class='page-links'>
-  <a class='button' href="<%= new_product_url %>" >Add new product</a>
-</ul>
+  <ul class='page-links'>
+    <a class='button' href="<%= new_product_url %>" >Add new product</a>
+  </ul>
 
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">SKU</th>
-      <th scope="col">Price</th>
-      <th scope="col">Inventory</th>
-      <th scope="col">Color</th>
-      <th scope="col">Style</th>
-      <th scope="col">Description</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <% @products.each_with_index do |product, index| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <th scope="row"><%= index + 1 %> </th>
-        <td><a href="<%= product_url(product) %>%"><p><%= product.name %></p></a></td>
-        <td><%= product.sku %></td>
-        <td><%= number_to_currency(product.price) %></td>
-        <td><%= product.inventory %></td>
-        <td><%= product.color %></td>
-        <td><%= product.style %></td>
-        <td><%= product.description %></td>
-        <td><a class='button' href="<%= edit_product_url(product) %>">Edit</a></td>
-        <td>
-          <form action="<%= product_url(product) %>" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
-            <input type="submit" value="Destroy Product">
-          </form>
-        </td>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">SKU</th>
+        <th scope="col">Price</th>
+        <th scope="col">Inventory</th>
+        <th scope="col">Color</th>
+        <th scope="col">Style</th>
+        <th scope="col">Description</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
+    </thead>
+    <tbody>
 
-    <% end %>
-  </tbody>
-</table>
+      <% @products.each_with_index do |product, index| %>
+        <tr>
+          <th scope="row"><%= index + 1 %> </th>
+          <td><a href="<%= product_url(product) %>%"><p><%= product.name %></p></a></td>
+          <td><%= product.sku %></td>
+          <td><%= number_to_currency(product.price) %></td>
+          <td><%= product.inventory %></td>
+          <td><%= product.color %></td>
+          <td><%= product.style %></td>
+          <td><%= product.description %></td>
+          <td><a class='button' href="<%= edit_product_url(product) %>">Edit</a></td>
+          <td>
+            <form action="<%= product_url(product) %>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+              <input type="submit" value="Destroy Product">
+            </form>
+          </td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>

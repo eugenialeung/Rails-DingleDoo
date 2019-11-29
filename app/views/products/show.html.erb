@@ -9,7 +9,7 @@
       <th scope="col">Image</th>
       <td>
         <% if @product.images.attached? %>
-            <%= image_tag(@product.images)%>
+            <%= image_tag(@product.images, class: "product-show-img")%>
         <% end %>
     </td>
     </tr>
@@ -44,13 +44,12 @@
 
 
 
-  <li><a class='button' href="<%= edit_product_url(@product) %>">Edit Product</a></li>
-  <li>
-    <form action="<%= product_url(@product) %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
-      <input type="submit" value="Destroy Product">
-    </form>
-  </li>
-  <li><a class='button' href="<%= products_url %>">All products</a></li>
+ <a class='button' href="<%= edit_product_url(@product) %>">Edit Product</a>
+
+<form action="<%= product_url(@product) %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+  <input type="submit" value="Destroy Product">
+</form>
+
 

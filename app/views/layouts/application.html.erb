@@ -12,7 +12,13 @@
 
   </head>
   <body>
-    <%= render partial: 'shared/main_nav' %>
+    <% if logged_in? && current_user.admin? %>
+      <%= render partial: 'shared/admin_nav' %>
+    <% else%>
+      <%= render partial: 'shared/main_nav' %>
+    <% end %>
+
+    
 
     <br>
     <div class='main-content'>
@@ -22,12 +28,9 @@
 
       <% if logged_in? %>
         
-        <nav>
+        <nav class="wrapper">
           <div class='user-detail'>
             <p>Logged in as: <%= current_user.email %></p>
-              <% if current_user.admin? %>
-                <a href="<%= products_url %>">Admin Dashboard</a>
-              <% end %>
           </div>
         </nav>
       <% end %>
@@ -40,7 +43,9 @@
         <p><%= flash[:errors].join(", ") %></p>
       <% end %>
 
+<div class="wrapper">
       <%= yield %>
+</div>
     </div>
 
 

@@ -9,9 +9,7 @@
       <th>Price</th>
     </tr>
   </thead>
-      <div>
-        <%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: "Are you sure?"} %>
-    </div>
+
 <tbody>
     <% @cart.cart_items.each do |item| %>
 
@@ -29,14 +27,19 @@
                 </li>
         </td>
 
-        <td>$<%= number_to_currency item.product_total_price, unit: 'USD', format: '%n %u' %></td>
+        <td><%= number_to_currency(item.product_total_price) %></td>
         <td><%= link_to 'Remove from cart', cart_item_url(item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <hr>
-    <%= @cart.cart_subtotal %>
+<div>
+    Subtotal <%= number_to_currency(@cart.cart_subtotal) %>
+    <div>
+        <%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-info' %>
+    </div>
+</div>
 
 
 

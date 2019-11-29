@@ -4,15 +4,15 @@
     <% @products.each do |product| %>
         <% if product.inventory > 0 %>
             <a href="<%= dingledoo_url(product) %>">
-                <div class="row justify-content-center">
+                <div class="row justify-content-left" style="vertical-align: top; display: inline-block">
                     <div class="col-md-4 col-12">
-                        <div class="card">
-                            <div class="img-animation">
-                                <%= image_tag(product.images) %>
+                        <div class="card" style="width: 350px; height: 560px; margin: 5px 5px 0px">
+                            <div class="image-container">
+                                <%= image_tag(product.images, class: "shop-img") %>
                             </div>
                                 <div class="card-body text-center">
-                                    <h5 class="card-title"><%= product.name %></h5>
-                                    <p class="card-text text-justify"><%= number_to_currency(product.price) %></p>
+                                    <h5 class="card-title text-left" style="color: pink"><%= product.name %></h5>
+                                    <p class="card-text text-justify text-right" style="color: grey"><%= number_to_currency(product.price) %></p>
                                 </div>
                         </div>
                     </div>

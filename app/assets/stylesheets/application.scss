@@ -13,6 +13,26 @@
 
 @import "bootstrap";
 
-img {
-  max-height: 300px;
+.image-container {
+  height: 95%;
+}
+
+.image-container .shop-img {
+  // max-width: 200px;
+  max-height: 100%;
+  // width: auto;
+  height: auto;
+  flex: 1;
+  // background-size: cover;
+  width: 100%;
+}
+
+.wrapper {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+img.product-show-img {
+  max-height: 8%;
+  width: auto;
 }
