@@ -15,7 +15,7 @@
 
 
       <tr class="col-md-16">
-        <td><%= link_to image_tag(item.product.images, class: "image"), dingledoo_url(item.product.id)  %></td>
+        <td><%= link_to image_tag(item.product.images, class: "cart-show-img"), dingledoo_url(item.product.id)  %></td>
         <td><%= link_to item.product.name, dingledoo_url(item.product.id) %></td>
         <td>
                 <p><%= item.quantity %></p>
@@ -38,6 +38,9 @@
     Subtotal <%= number_to_currency(@cart.cart_subtotal) %>
     <div>
         <%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-info' %>
+    </div>
+      <div>
+        <%= button_to 'Check Out', cart_checkout_url(@cart), method: :get, class: 'btn btn-info' %>
     </div>
 </div>
 

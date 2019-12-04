@@ -16,6 +16,16 @@ class CartsController < ApplicationController
         redirect_to root_url
     end
 
+    def checkout
+        @cart = Cart.find(session[:cart_id])
+        render :checkout
+    end
+
+    def add_cart_to_user
+        user = User.create
+        redirect_to root_url
+    end
+
 
   
     private

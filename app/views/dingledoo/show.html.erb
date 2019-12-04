@@ -7,7 +7,7 @@
       <th scope="col">Image</th>
       <td>
         <% if @product.images.attached? %>
-            <%= image_tag(@product.images) %>
+            <%= image_tag(@product.images, class: "shop-show-img") %>
         <% end %>
     </td>
     </tr>
@@ -47,4 +47,5 @@
                 <%= f.hidden_field :quantity, value: 1, class: "number-tag", min: 1 %>
                 <%= f.submit 'Add to Cart', class: "btn btn-success" %>
              <%end%> 
+
 

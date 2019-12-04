@@ -1,0 +1,52 @@
+<h1>CHECKOUT PAGE </h1>
+
+<h1 class='page-header'>Create a New Account</h1>
+
+
+
+
+<form class='form' action="<%= users_url %>" method="post">
+  <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+  <div class="form-group">
+    <label for="new-user-email">Email address</label>
+    <input type="text" id='new-user-email' name="user[email]" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="new-user-password">Password</label>
+    <input type="password" id="new-user-password" name="user[password]" placeholder="Password">
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+<h2 class='page-header'>Sign-in</h2>
+
+
+
+
+
+<form class='form' action="<%= session_url %>" method="post">
+  <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+  <div class="form-group">
+    <label for="new-user-email">Email address</label>
+    <input type="text" id='new-user-email' name="user[email]" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="new-user-password">Password</label>
+    <input type="password" id="new-user-password" name="user[password]" placeholder="Password">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

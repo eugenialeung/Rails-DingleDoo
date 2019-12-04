@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   post 'cart_items/:id/add' => "cart_items#add_quantity", as: "cart_items_add"
   post 'cart_items/:id/reduce' => "cart_items#reduce_quantity", as: "cart_items_reduce"
+
+  get 'carts/:id/checkout' => "carts#checkout", as: "cart_checkout"
   
 
 
